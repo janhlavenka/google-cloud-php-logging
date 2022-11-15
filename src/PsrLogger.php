@@ -160,12 +160,12 @@ class PsrLogger implements LoggerInterface, \Serializable
      * $psrLogger->emergency('emergency message');
      * ```
      *
-     * @param string $message The message to log.
+     * @param string|\Stringable $message The message to log.
      * @param array $context [optional] Please see {@see Google\Cloud\Logging\PsrLogger::log()}
      *        for the available options.
      * @return void
      */
-    public function emergency($message, array $context = [])
+    public function emergency(string|\Stringable $message, array $context = []): void
     {
         $this->log(Logger::EMERGENCY, $message, $context);
     }
@@ -178,12 +178,12 @@ class PsrLogger implements LoggerInterface, \Serializable
      * $psrLogger->alert('alert message');
      * ```
      *
-     * @param string $message The message to log.
+     * @param string|\Stringable $message The message to log.
      * @param array $context [optional] Please see {@see Google\Cloud\Logging\PsrLogger::log()}
      *        for the available options.
      * @return void
      */
-    public function alert($message, array $context = [])
+    public function alert(string|\Stringable $message, array $context = []): void
     {
         $this->log(Logger::ALERT, $message, $context);
     }
@@ -196,12 +196,12 @@ class PsrLogger implements LoggerInterface, \Serializable
      * $psrLogger->critical('critical message');
      * ```
      *
-     * @param string $message The message to log.
+     * @param string|\Stringable $message The message to log.
      * @param array $context [optional] Please see {@see Google\Cloud\Logging\PsrLogger::log()}
      *        for the available options.
      * @return void
      */
-    public function critical($message, array $context = [])
+    public function critical(string|\Stringable $message, array $context = []): void
     {
         $this->log(Logger::CRITICAL, $message, $context);
     }
@@ -214,12 +214,12 @@ class PsrLogger implements LoggerInterface, \Serializable
      * $psrLogger->error('error message');
      * ```
      *
-     * @param string $message The message to log.
+     * @param string|\Stringable $message The message to log.
      * @param array $context [optional] Please see {@see Google\Cloud\Logging\PsrLogger::log()}
      *        for the available options.
      * @return void
      */
-    public function error($message, array $context = [])
+    public function error(string|\Stringable $message, array $context = []): void
     {
         $this->log(Logger::ERROR, $message, $context);
     }
@@ -232,12 +232,12 @@ class PsrLogger implements LoggerInterface, \Serializable
      * $psrLogger->warning('warning message');
      * ```
      *
-     * @param string $message The message to log.
+     * @param string|\Stringable $message The message to log.
      * @param array $context [optional] Please see {@see Google\Cloud\Logging\PsrLogger::log()}
      *        for the available options.
      * @return void
      */
-    public function warning($message, array $context = [])
+    public function warning(string|\Stringable $message, array $context = []): void
     {
         $this->log(Logger::WARNING, $message, $context);
     }
@@ -250,12 +250,12 @@ class PsrLogger implements LoggerInterface, \Serializable
      * $psrLogger->notice('notice message');
      * ```
      *
-     * @param string $message The message to log.
+     * @param string|\Stringable $message The message to log.
      * @param array $context [optional] Please see {@see Google\Cloud\Logging\PsrLogger::log()}
      *        for the available options.
      * @return void
      */
-    public function notice($message, array $context = [])
+    public function notice(string|\Stringable $message, array $context = []): void
     {
         $this->log(Logger::NOTICE, $message, $context);
     }
@@ -268,12 +268,12 @@ class PsrLogger implements LoggerInterface, \Serializable
      * $psrLogger->info('info message');
      * ```
      *
-     * @param string $message The message to log.
+     * @param string|\Stringable $message The message to log.
      * @param array $context [optional] Please see {@see Google\Cloud\Logging\PsrLogger::log()}
      *        for the available options.
      * @return void
      */
-    public function info($message, array $context = [])
+    public function info(string|\Stringable $message, array $context = []): void
     {
         $this->log(Logger::INFO, $message, $context);
     }
@@ -286,12 +286,12 @@ class PsrLogger implements LoggerInterface, \Serializable
      * $psrLogger->debug('debug message');
      * ```
      *
-     * @param string $message The message to log.
+     * @param string|\Stringable $message The message to log.
      * @param array $context [optional] Please see {@see Google\Cloud\Logging\PsrLogger::log()}
      *        for the available options.
      * @return void
      */
-    public function debug($message, array $context = [])
+    public function debug(string|\Stringable $message, array $context = []): void
     {
         $this->log(Logger::DEBUG, $message, $context);
     }
@@ -329,7 +329,7 @@ class PsrLogger implements LoggerInterface, \Serializable
      * ```
      *
      * @param string|int $level The severity of the log entry.
-     * @param string $message The message to log.
+     * @param string|\Stringable $message The message to log.
      * @param array $context {
      *     Context is an associative array which can include placeholders to be
      *     used in the `$message`. Placeholders must be delimited with a single
@@ -368,7 +368,7 @@ class PsrLogger implements LoggerInterface, \Serializable
      * @return void
      * @throws InvalidArgumentException
      */
-    public function log($level, $message, array $context = [])
+    public function log($level, string|\Stringable $message, array $context = []): void
     {
         $this->validateLogLevel($level);
         $options = [];
